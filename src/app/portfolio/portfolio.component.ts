@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Stock } from '../stockType';
 
 @Component({
   selector: 'portfolio',
@@ -10,6 +11,17 @@ export class PortfolioComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  stockList: Stock[] = [
+    { symbol: 'aapl' },
+    { symbol: 'tsla' },
+    { symbol: 'msft' },
+    { symbol: 'nbr' }
+  ]
+
+  viewStockList(){
+    return this.stockList
   }
 
 }

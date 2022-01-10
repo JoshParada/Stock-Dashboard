@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PortfolioComponent } from '../portfolio/portfolio.component';
+import { Stock } from '../stockType';
 
 @Component({
   selector: 'sidebar',
@@ -9,7 +11,17 @@ export class SidebarComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
+
+  // @ViewChild(PortfolioComponent) portfolio!:PortfolioComponent;
+
+  // stockList : Stock[] = this.portfolio.stockList
+
+  stockList: Stock[] = [
+    { symbol: 'aapl' },
+    { symbol: 'tsla' },
+    { symbol: 'msft' },
+    { symbol: 'nbr' }
+  ]
 
 }

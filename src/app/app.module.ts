@@ -10,6 +10,12 @@ import { SearchpageComponent } from './searchpage/searchpage.component';
 import { StockpageComponent } from './stockpage/stockpage.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 
+import * as PlotlyJS from 'plotly.js-dist-min';
+import { PlotlyModule } from 'angular-plotly.js';
+
+PlotlyModule.plotlyjs = PlotlyJS;
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +28,8 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PlotlyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
