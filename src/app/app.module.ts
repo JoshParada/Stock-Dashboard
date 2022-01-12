@@ -9,7 +9,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SearchpageComponent } from './searchpage/searchpage.component';
 import { StockpageComponent } from './stockpage/stockpage.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import * as PlotlyJS from 'plotly.js-dist-min';
 import { PlotlyModule } from 'angular-plotly.js';
 
@@ -29,7 +30,9 @@ PlotlyModule.plotlyjs = PlotlyJS;
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PlotlyModule
+    PlotlyModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

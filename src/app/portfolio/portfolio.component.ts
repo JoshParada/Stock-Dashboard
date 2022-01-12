@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Stock } from '../stockType';
+import { PortfolioDB } from '../portfolioDB';
 
 @Component({
   selector: 'portfolio',
@@ -8,20 +9,15 @@ import { Stock } from '../stockType';
 })
 export class PortfolioComponent implements OnInit {
 
-  constructor() { }
+  stockList: Stock[] = []
+  constructor(private portfolioDB:PortfolioDB) { }
 
   ngOnInit(): void {
+    this.stockList = this.portfolioDB.getPortfolio();
   }
 
-  stockList: Stock[] = [
-    { symbol: 'aapl' },
-    { symbol: 'tsla' },
-    { symbol: 'msft' },
-    { symbol: 'nbr' }
-  ]
-
-  viewStockList(){
-    return this.stockList
+  removeFromPortfolio(stock:Stock){
+    this.portfolioDB.removeFromPortfolio(stock);
   }
 
 }

@@ -1,9 +1,8 @@
-<p>stockpage works!</p>
 <div class="container">
     <div class="containerhalf">
         <div class="titlecard">
             <div class="card">
-                <h5 class="card-header">Featured</h5>
+                <h5 class="card-header">{{stock | uppercase}}</h5>
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -12,6 +11,21 @@
             </div>
         </div>
         <div class="chart">
+            <div class="chartinput">
+                <form>
+                    <label for="datemax">Start Date:</label>
+                    <input type="date" id="datemax" name="datemax"><br><br>
+                    <label for="datemin">End Date:</label>
+                    <input type="date" id="datemin" name="datemin" max="{{todayString}}">
+                    <label for="cars">Interval:</label>
+                    <select id="cars" name="cars">
+                        <option value="volvo">5m</option>
+                        <option value="saab">15m</option>
+                        <option value="fiat">1h</option>
+                        <option value="audi">1d</option>
+                    </select>
+                </form>
+            </div>
             <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
         </div>
 
@@ -38,5 +52,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>

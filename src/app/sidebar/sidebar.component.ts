@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PortfolioComponent } from '../portfolio/portfolio.component';
 import { Stock } from '../stockType';
+import { PortfolioDB } from '../portfolioDB';
 
 @Component({
   selector: 'sidebar',
@@ -9,19 +9,15 @@ import { Stock } from '../stockType';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  stockList: Stock[] = []
+  constructor(private portfolioDB:PortfolioDB) { }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {
+    this.stockList = this.portfolioDB.getPortfolio();
+  }
 
-  // @ViewChild(PortfolioComponent) portfolio!:PortfolioComponent;
-
-  // stockList : Stock[] = this.portfolio.stockList
-
-  stockList: Stock[] = [
-    { symbol: 'aapl' },
-    { symbol: 'tsla' },
-    { symbol: 'msft' },
-    { symbol: 'nbr' }
-  ]
+  removeFromPortfolio(stock:Stock){
+    this.portfolioDB.removeFromPortfolio(stock);
+  }
 
 }

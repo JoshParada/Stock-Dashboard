@@ -5,16 +5,19 @@
         <svg class="bi me-2" width="40" height="32">
           <use xlink:href="#bootstrap" />
         </svg>
-        <span class="fs-4">Bullish or Bearish</span>
+        <a routerLink="homepage" class="none"><span class="fs-4">Bullish or Bearish</span></a>
+        
       </a>
 
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link">My Portfolio</a></li>
+        <li class="nav-item"><a routerLink="homepage" class="nav-link">Home</a></li>
+        <li class="nav-item"><a routerLink="portfoliopage" class="nav-link">My Portfolio</a></li>
         <li class="nav-item"><a href="#" class="nav-link">About</a></li>
       </ul>
       <form class="form col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-        <button type="submit" class="btn btn-light btn-outline-success">Submit</button>
+        <input name="symbolSearch" type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search" [(ngModel)]="symbolSearch">
+        <a routerLink="searchpage"><button type="submit" class="btn btn-light btn-outline-success" (click)="addTosearchList(symbolSearch)">Submit</button>
+        </a>
       </form>
     </header>
   </div>
