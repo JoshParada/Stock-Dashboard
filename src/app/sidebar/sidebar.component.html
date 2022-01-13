@@ -1,19 +1,16 @@
 <div class="sidebar">
-  <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white">
-    <a class="none" routerLink='portfoliopage'><span class="fs-5 fw-semibold">My Portfolio</span></a>
+  <div class="titlediv d-flex flex-column align-items-stretch flex-shrink-0">
+    <a class="none" routerLink='portfoliopage'><span class="title none fs-5 fw-semibold">My Portfolio</span></a>
     
-    <div class="list-group list-group-flush border-bottom scrollarea">
-      <ul *ngFor="let stock of stockList">
+    <div class="stocklist list-group list-group-flush border-bottom scrollarea">
+      <ul class="stocklist" *ngFor="let stock of stockList">
         <div class="stock">
-          <a routerLink="stockpage/{{stock.symbol}}" class="list-group-item list-group-item-action py-3 lh-tight">
+          <a routerLink="stockpage/{{stock.symbol}}" class="stocklink list-group-item list-group-item-action py-3 lh-tight">
             <div class="d-flex w-100 align-items-center justify-content-between">
               <strong class="mb-1">{{stock.symbol | uppercase}}</strong>
             </div>
-            <div class="col-10 mb-1 small">
-              Some placeholder content in a paragraph below the heading and date.
-            </div>
           </a>
-          <button type="button" class="btn btn-danger" (click)="removeFromPortfolio(stock)">Remove</button>
+          <button type="button" class="removestock btn btn-danger list-group-item list-group-item-action py-3 lh-tight" (click)="removeFromPortfolio(stock)">X</button>
         </div>
       </ul>
     </div>

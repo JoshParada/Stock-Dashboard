@@ -8,9 +8,8 @@ import { SearchpageComponent } from './searchpage/searchpage.component';
 const routes: Routes = [
   {path:'homepage', component:HomepageComponent},
   {path:'portfoliopage', component:PortfolioComponent},
-  {path:'stockpage', component:StockpageComponent},
   {path:'stockpage/:symbol', component:StockpageComponent},
-  {path:'searchpage', component:SearchpageComponent},
+  {path:'searchpage/:symbol', component:SearchpageComponent},
   {path:'', redirectTo: 'homepage', pathMatch:'full'}
 ];
 

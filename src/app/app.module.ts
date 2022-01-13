@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import * as PlotlyJS from 'plotly.js-dist-min';
 import { PlotlyModule } from 'angular-plotly.js';
+import { ChartComponent } from './chart/chart.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -25,7 +26,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     HomepageComponent,
     SearchpageComponent,
     StockpageComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,

@@ -40,7 +40,7 @@ export class HomepageComponent implements OnInit {
       this.StockdataService.searchNews(this.trendingNames.toString()).then((resp:any) => {
         //console.log(resp)
         this.trendingNews = resp.data;
-        console.log(this.trendingNews)
+        //console.log(this.trendingNews)
       })
     })
   }

@@ -7,7 +7,7 @@ import { Stock } from "./stockType"
 
 export class PortfolioDB {
     portfolioList: Stock[] = [
-        
+        { symbol: 'tsla' }
     ]
 
     searchList: string[] = []

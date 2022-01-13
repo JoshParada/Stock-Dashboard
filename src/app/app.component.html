@@ -1,11 +1,9 @@
 <div class="whole">
   <div class="header">
-    <header class="d-flex flex-wrap justify-content-center text-white py-3 mb-4 border-bottom">
+    <header class="d-flex flex-wrap justify-content-center text-white">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32">
-          <use xlink:href="#bootstrap" />
-        </svg>
-        <a routerLink="homepage" class="none"><span class="fs-4">Bullish or Bearish</span></a>
+        <img src="assets/logo.png" alt="logo" style="width: 95px; height: 80px;">
+        <a routerLink="homepage" class="none"><span class="fs-4"><h2><span class="bullish">Bullish</span> or <span class="bearish">Bearish</span>?</h2></span></a>
         
       </a>
 
@@ -15,8 +13,8 @@
         <li class="nav-item"><a href="#" class="nav-link">About</a></li>
       </ul>
       <form class="form col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input name="symbolSearch" type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search" [(ngModel)]="symbolSearch">
-        <a routerLink="searchpage"><button type="submit" class="btn btn-light btn-outline-success" (click)="addTosearchList(symbolSearch)">Submit</button>
+        <input name="symbolSearch" type="search" class="search form-control form-control-dark" placeholder="Search..." aria-label="Search" [(ngModel)]="symbolSearch">
+        <a class="searchbtn" routerLink="searchpage/{{symbolSearch}}"><button type="submit" class="btn btn-light btn-outline-success" (click)="addTosearchList(symbolSearch)">Submit</button>
         </a>
       </form>
     </header>

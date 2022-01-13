@@ -11,22 +11,7 @@
             </div>
         </div>
         <div class="chart">
-            <div class="chartinput">
-                <form>
-                    <label for="datemax">Start Date:</label>
-                    <input type="date" id="datemax" name="datemax"><br><br>
-                    <label for="datemin">End Date:</label>
-                    <input type="date" id="datemin" name="datemin" max="{{todayString}}">
-                    <label for="cars">Interval:</label>
-                    <select id="cars" name="cars">
-                        <option value="volvo">5m</option>
-                        <option value="saab">15m</option>
-                        <option value="fiat">1h</option>
-                        <option value="audi">1d</option>
-                    </select>
-                </form>
-            </div>
-            <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
+            <chart [historicalData]="historicalData"></chart>
         </div>
 
     </div>
