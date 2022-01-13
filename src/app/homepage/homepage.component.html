@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="trending">
+    <h2>Trending</h2>
+    <div class="trendinglist" *ngFor="let stock of trendingData">
+      <div class="card">
+        <h5 class="card-header">{{stock['ticker'] | uppercase}}<button class="btn btn-success" (click)="addToPortfolio({symbol: stock['ticker']})">Add</button>
+        </h5>
+        <div class="card-body">
+          <h5 class="card-title">{{stock['name']}}</h5>
+          <p class="card-text">${{stock['price']}} <span [ngClass]="stock['day_change'] > 0 ? 'positive' : 'negative'"><span *ngIf="stock['day_change'] > 0 else negative">&#8679;</span><ng-template #negative>
+            <span>&#8681;</span>
+           </ng-template> ({{stock['day_change']}})%</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="news" *ngIf="trendingNews.length > 0">
+    <h2>News</h2>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <a href="{{trendingNews[0]['image_url']}}" target="_blank"><img src="{{trendingNews[0]['image_url']}}" class="d-block w-100"
+              alt="..." style="height:330px;"></a>
+          <div class="text carousel-caption d-none d-md-block">
+            <h5>{{trendingNews[0]['title']}}</h5>
+            <p>{{trendingNews[0]['description']}}</p>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <a href="{{trendingNews[1]['image_url']}}" target="_blank"><img src="{{trendingNews[1]['image_url']}}" class="d-block w-100"
+              alt="..." style="height:330px;"></a>
+          <div class="text carousel-caption d-none d-md-block">
+            <h5>{{trendingNews[1]['title']}}</h5>
+            <p>{{trendingNews[2]['description']}}</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <a href="{{trendingNews[2]['image_url']}}" target="_blank"><img src="{{trendingNews[2]['image_url']}}" class="d-block w-100"
+              alt="..." style="height:330px;"></a>
+          <div class="text carousel-caption d-none d-md-block">
+            <h5>{{trendingNews[2]['title']}}</h5>
+            <p>{{trendingNews[2]['description']}}</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</div>

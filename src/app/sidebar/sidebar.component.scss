@@ -1,0 +1,46 @@
+.sidebar{
+    padding-top: 10px;
+    height: 90%;
+    max-width: 300px;
+    max-height: 700px;
+    overflow: scroll;
+    background-color: #efefef;
+    border-right: 1px solid darkgray;
+}
+.titlediv {
+    background-color: #efefef;
+}
+.title{
+    margin: 10px auto;
+    background-color: #efefef;
+
+}
+
+.stocklink{
+    display: flex;
+}
+
+.stocklist {
+    background-color: #efefef;
+}
+
+.stock{
+    display:flex;
+    background-color: #efefef;
+
+}
+
+.removestock{
+    width:45px;
+}
+.removestock:hover{
+    background-color:#dc3545;
+}
+
+.none{
+    text-decoration: none;
+    color:black;
+    margin: 10px auto;
+
+}
+

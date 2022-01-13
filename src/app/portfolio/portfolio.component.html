@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>My Portfolio</h2>
+  <div class="empty" *ngIf="stockList.length == 0">
+    <p>Your portfolio is empty. Search for a stock to add to your portfolio</p>
+  </div>
+  <div class="portfolio" *ngFor="let stock of stockList">
+    <div class="card">
+      <h5 class="card-header">{{stock.symbol | uppercase}}</h5>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <button class="btn btn-danger" (click)="removeFromPortfolio(stock)">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>
