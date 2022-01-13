@@ -17,6 +17,7 @@ export class StockpageComponent implements OnInit, OnDestroy {
   historicalData: any[] = []
 
   liveResults: any[] = []
+  liveData: any[] = []
 
   constructor(
     private StocksocketService: StocksocketService,
@@ -33,18 +34,19 @@ export class StockpageComponent implements OnInit, OnDestroy {
 
     this.StocksocketService.getStockList().subscribe(data => {
       this.listResults = [data];
-      console.log(this.listResults);
+      //console.log(this.listResults);
     })
 
     this.StocksocketService.getStockLive().subscribe(data => {
       this.liveResults = [data[0]];
-      console.log(this.liveResults);
+      this.liveData = this.liveResults[0].data;
+      //console.log(this.liveData);
     })
 
     this.StocksocketService.getStockHistory().subscribe(data => {
       this.historicalResults = [data[0]];
       this.historicalData = this.historicalResults[0].days;
-      console.log(this.historicalData);
+      //console.log(this.historicalData);
     })
   }
 
