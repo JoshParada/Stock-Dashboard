@@ -12,6 +12,7 @@ h2{
     margin: 0;
 }
 .container{
+    width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -38,6 +39,10 @@ li{
 
 }
 
+.title{
+    font-family: 'Anton', sans-serif;
+}
+
 .bullish{
     animation-name: bullish;
     animation-duration: 6s;
@@ -57,4 +62,28 @@ li{
   @keyframes bearish {
     50%  {color:red;
     font-size:35px}
+  }
+  .nav{
+    font-family: 'Quicksand', sans-serif;
+    color: #1A374D;
+  }
+  a{
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bolder;
+    color: #1A374D;
+    text-decoration: none;
+  }
+  .whole{
+      width: 100%;
+      height: 100%;
+      min-height: 850px;
+      background-color: #406882;
+  }
+  .sidebar{
+      width: 20%;
+      height: 100%;
+  }
+  .page{
+      width: 100%;
+      
   }

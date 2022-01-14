@@ -1,0 +1,52 @@
+<div class="card" style="width: 18rem;" *ngIf="stockData.length>0">
+  <div class="card-body">
+    <h5 class="card-title">About</h5>
+    <p class="card-text" style="max-height: 100px; overflow: scroll;">{{stockData[0].description}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{stockData[0].address1}} {{stockData[0].city}} {{stockData[0].state}}
+      {{stockData[0].country}} {{stockData[0].zip}}</li>
+    <li class="list-group-item">Sector: {{stockData[0].sector}}</li>
+    <li class="list-group-item">Industry: {{stockData[0].industry}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="{{stockData[0].website}}" class="card-link">{{stockData[0].website}}</a>
+
+    <a href="{{stockData[0].website}}" class="card-link">{{stockData[0].phone}}</a>
+  </div>
+</div>
+
+
+<!-- DUMMY DATA 
+
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">About</h5>
+    <p class="card-text" style="max-height: 100px; overflow: scroll;">Tesla, Inc. designs, develops, manufactures,
+      leases, and sells electric vehicles, and energy generation and storage systems in the United States, China, and
+      internationally. The company operates in two segments, Automotive, and Energy Generation and Storage. The
+      Automotive segment offers electric vehicles, as well as sells automotive regulatory credits. It provides sedans
+      and sport utility vehicles through direct and used vehicle sales, a network of Tesla Superchargers, and in-app
+      upgrades; and purchase financing and leasing services. This segment is also involved in the provision of
+      non-warranty after-sales vehicle services, sale of used vehicles, retail merchandise, and vehicle insurance, as
+      well as sale of products through its subsidiaries to third party customers; services for electric vehicles through
+      its company-owned service locations, and Tesla mobile service technicians; and vehicle limited warranties and
+      extended service plans. The Energy Generation and Storage segment engages in the design, manufacture,
+      installation, sale, and leasing of solar energy generation and energy storage products, and related services to
+      residential, commercial, and industrial customers and utilities through its website, stores, and galleries, as
+      well as through a network of channel partners. This segment also offers service and repairs to its energy product
+      customers, including under warranty; and various financing options to its solar customers. The company was
+      formerly known as Tesla Motors, Inc. and changed its name to Tesla, Inc. in February 2017. Tesla, Inc. was founded
+      in 2003 and is headquartered in Palo Alto, California.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">3500 Deer Creek Road Palo Alto CA United States 94304</li>
+    <li class="list-group-item">Sector: Consumer Cyclical</li>
+    <li class="list-group-item">Industry: Auto Manufacturers</li>
+  </ul>
+  <div class="card-body">
+    <a href="http://www.tesla.com" class="card-link">http://www.tesla.com</a>
+
+    <a href="http://www.tesla.com" class="card-link">650-681-5000</a>
+  </div>
+</div> -->

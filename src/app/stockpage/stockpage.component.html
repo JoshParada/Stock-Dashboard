@@ -1,41 +1,18 @@
 <div class="container">
     <div class="containerhalf">
-        <div class="titlecard">
-            <div class="card">
-                <h5 class="card-header">{{stock | uppercase}}</h5>
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+        <div class="profile">
+            <profile [stockName]="stockName"></profile>
         </div>
         <div class="chart">
             <chart [historicalData]="historicalData" [liveData]="liveData"></chart>
         </div>
-
     </div>
-
     <div class="containerhalf">
-        <div class="profile">
-            <h3>profile</h3>
-            <p>address:</p>
-            <p>industry</p>
-            <p>sector</p>
-            <p>bio</p>
+        <div class="infopane">
+            <infopane [stockName]="stockName"></infopane>
         </div>
         <div class="news">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    <h3>News</h3>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
-            </div>
+            <news [stockName]="stockName"></news>
         </div>
     </div>
-
 </div>

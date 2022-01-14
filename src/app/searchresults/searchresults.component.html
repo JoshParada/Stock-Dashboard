@@ -1,0 +1,53 @@
+<div class="container">
+  <h2>Results for: '{{stock}}'</h2>
+  <div class="empty" *ngIf="searchData.length == 0">
+    <p>Searching for results...</p>
+  </div>
+  
+  <div class="searchlist" *ngFor="let stock of searchData">
+    <div class="card">
+      <h5 class="card-header">{{stock['ticker'] | uppercase}}<button class="btn btn-success" (click)="addToPortfolio({symbol: stock['ticker']})">Add</button>
+      </h5>
+      <div class="card-body">
+        <h5 class="card-title">{{stock['name']}}</h5>
+        <p class="card-text">${{stock['price']}} <span [ngClass]="stock['day_change'] > 0 ? 'positive' : 'negative'"><span *ngIf="stock['day_change'] > 0 else negative">&#8679;</span><ng-template #negative>
+          <span>&#8681;</span>
+         </ng-template> ({{stock['day_change']}})%</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DUMMY DATA 
+    <div class="searchlist">
+    <div class="card">
+      <h5 class="card-header">AAPL</h5>
+      <div class="card-body">
+        <h5 class="card-title">Apple Inc.</h5>
+        <p class="card-text">$175.49 (0.32)%</p>
+        <button class="btn btn-success" (click)="addToPortfolio({symbol: 'aapl'})">Add</button>
+      </div>
+    </div>
+    <br>
+
+    <div class="card">
+      <h5 class="card-header">AAPL</h5>
+      <div class="card-body">
+        <h5 class="card-title">Apple Inc.</h5>
+        <p class="card-text">$175.49 (0.32)%</p>
+        <button class="btn btn-success" (click)="addToPortfolio({symbol: 'aapl'})">Add</button>
+      </div>
+    </div>
+    <br>
+
+    <div class="card">
+      <h5 class="card-header">AAPL</h5>
+      <div class="card-body">
+        <h5 class="card-title">Apple Inc.</h5>
+        <p class="card-text">$175.49 (0.32)%</p>
+        <button class="btn btn-success" (click)="addToPortfolio({symbol: 'aapl'})">Add</button>
+      </div>
+    </div>
+    <br>
+
+  </div> -->
+</div>

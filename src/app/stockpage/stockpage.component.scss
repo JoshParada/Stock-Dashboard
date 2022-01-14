@@ -1,11 +1,23 @@
 .container{
+    border-radius: 10px;
+    background-color: #B1D0E0;
+    padding: 20px;
+    margin: 20px 15px;
+
+
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
-    margin: 0;
     padding: 20px;
+    gap: 10px 10px;
 }
 .containerHalf {
-    flex: 1;
-    margin: 25px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 50%;
+    gap: 10px 10px;
+    
+
 }

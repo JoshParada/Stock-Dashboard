@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StockdataService } from '../stockdata.service';
 import { Stock } from '../stockType';
 import { PortfolioDB } from '../portfolioDB';
 
@@ -9,11 +10,22 @@ import { PortfolioDB } from '../portfolioDB';
 })
 export class PortfolioComponent implements OnInit {
 
-  stockList: Stock[] = []
-  constructor(private portfolioDB:PortfolioDB) { }
+  portfolio: Stock[] = []
+  symbolList:any[] = []
+  stockList: any[] = []
+  constructor(
+    private StockdataService: StockdataService,
+    private portfolioDB:PortfolioDB) { }
 
   ngOnInit(): void {
-    this.stockList = this.portfolioDB.getPortfolio();
+    this.portfolio = this.portfolioDB.getPortfolio();
+    this.portfolio.forEach(stock => {this.symbolList.push(stock.symbol)})
+
+    this.StockdataService.searchQuote(this.symbolList.toString()).then((resp:any) => {
+      //console.log(resp)
+      this.stockList = resp.data;
+      console.log(this.stockList)
+    })
   }
 
   removeFromPortfolio(stock:Stock){

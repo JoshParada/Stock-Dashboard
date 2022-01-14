@@ -1,19 +1,9 @@
 .container{
     width: 100%;
-}
-
-.trending{
     border-radius: 10px;
     background-color: #B1D0E0;
     padding: 20px;
-    margin-top: 20px;
-}
-
-.news{
-    border-radius: 10px;
-    background-color: #B1D0E0;
-    padding: 20px;
-    margin-top: 20px;
+    margin: 20px 15px;
 }
 
 .positive{
@@ -22,7 +12,7 @@
 .negative{
     color: red;
 }
-.trendinglist{
+.searchlist{
     display: inline-block;
 }
 .card{
@@ -35,11 +25,4 @@
 .card-header{
     display: flex;
     justify-content: space-between;
-}
-
-.text{
-    display:inline;
-    background-color:#efefef;
-    opacity:70%;
-    border-radius: 20px;
 }
