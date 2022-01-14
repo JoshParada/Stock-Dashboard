@@ -3,6 +3,13 @@
         <h3>News</h3>
     </div>
     <ul class="list-group list-group-flush" *ngFor="let stock of newsResults">
-        <a href="{{stock.url}}" target="_blank"><li class="list-group-item">{{stock.title}}</li></a>
+        <li class="list-group-item"><a href="{{stock.url}}" target="_blank">{{stock.title}}</a></li>
     </ul>
+
+    <!-- DUMMY DATA
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a href="google.com" class="none" target="_blank">Opinion: If you believe January can predict 2022 stock market returns, you’ll love these 3 other months</a></li>
+        <li class="list-group-item"><a href="google.com" class="none" target="_blank">Opinion: If you believe January can predict 2022 stock market returns, you’ll love these 3 other months</a></li>
+        <li class="list-group-item"><a href="google.com" class="none" target="_blank">Opinion: If you believe January can predict 2022 stock market returns, you’ll love these 3 other months</a></li>    
+    </ul> -->
 </div>

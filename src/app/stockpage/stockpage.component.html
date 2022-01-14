@@ -1,12 +1,12 @@
 <div class="container">
     <div class="containerhalf">
-        <profile [stockName]="stockName"></profile>
+        <div class="profile">
+            <profile [stockName]="stockName"></profile>
+        </div>
         <div class="chart">
             <chart [historicalData]="historicalData" [liveData]="liveData"></chart>
         </div>
-
     </div>
-
     <div class="containerhalf">
         <div class="infopane">
             <infopane [stockName]="stockName"></infopane>
@@ -15,5 +15,4 @@
             <news [stockName]="stockName"></news>
         </div>
     </div>
-
 </div>
