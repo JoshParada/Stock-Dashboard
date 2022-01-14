@@ -19,6 +19,13 @@ export class StockpageComponent implements OnInit, OnDestroy {
   liveResults: any[] = []
   liveData: any[] = []
 
+
+  today: Date = new Date()
+  todayString: string = this.today.toISOString().slice(0, 10);
+  startDate = ''
+  endDate = ''
+  interval = ''
+
   constructor(
     private StocksocketService: StocksocketService,
     private activeRoute: ActivatedRoute) { }
@@ -48,6 +55,10 @@ export class StockpageComponent implements OnInit, OnDestroy {
       this.historicalData = this.historicalResults[0].days;
       //console.log(this.historicalData);
     })
+  }
+
+  onSubmit(isValid: boolean | null) {
+    console.log(this.startDate, this.endDate, this.interval)
   }
 
   ngOnDestroy() {

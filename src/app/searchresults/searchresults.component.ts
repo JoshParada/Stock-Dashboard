@@ -24,6 +24,7 @@ export class SearchresultsComponent implements OnInit {
   }
 
   ngOnChanges(){
+    this.symbolList = []
     this.StockdataService.searchStock(this.stock!).then((resp:any) => {
       //console.log(resp);
       this.searchResults = resp.data;
