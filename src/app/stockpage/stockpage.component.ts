@@ -10,7 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class StockpageComponent implements OnInit, OnDestroy {
 
   stockName = (this.activeRoute.snapshot.paramMap.get('symbol'));
-
+  // It would probably be a good idea to make some interfaces to define what the items
+  // going into the arrays will look like so you don't have to use 'any' for your type
   listResults: any[] = []
 
   historicalResults: any[] = []

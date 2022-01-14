@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class StockdataService {
 
   constructor(private http:HttpClient) { }
-
+  // You might look into environmental variables to keep your API key secure 
   APIkey:string = 'ntyrU1UrsRc1dEahAwilaMOZ9ISV9icMT9ffaAaR'
 
   public searchStock(symbol:string){
