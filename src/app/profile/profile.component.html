@@ -1,0 +1,12 @@
+<div class="titlecard" *ngIf="stockData.length > 0">
+    <div class="card">
+        <h5 class="card-header">{{stockData[0].ticker | uppercase}}</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{stockData[0].name}}</h5>
+            <p class="card-text">${{stockData[0]['price']}} <span [ngClass]="stockData[0]['day_change'] > 0 ? 'positive' : 'negative'"><span *ngIf="stockData[0]['day_change'] > 0 else negative">&#8679;</span><ng-template #negative>
+                <span>&#8681;</span>
+               </ng-template> ({{stockData[0]['day_change']}})%</span></p>
+            <button class="btn btn-primary" (click)="removeFromPortfolio({symbol: stockData[0].ticker})">Remove</button>
+        </div>
+    </div>
+</div>

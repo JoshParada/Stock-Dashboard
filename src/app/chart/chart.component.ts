@@ -126,11 +126,11 @@ export class ChartComponent implements OnInit {
       this.PorfolioDB.addTostockHistoryLow(day.low)
 
     }
-    console.log(this.PorfolioDB.getstockHistoryDay())
-    console.log(this.PorfolioDB.getstockHistoryOpen())
-    console.log(this.PorfolioDB.getstockHistoryClose())
-    console.log(this.PorfolioDB.getstockHistoryHigh())
-    console.log(this.PorfolioDB.getstockHistoryLow())
+    // console.log(this.PorfolioDB.getstockHistoryDay())
+    // console.log(this.PorfolioDB.getstockHistoryOpen())
+    // console.log(this.PorfolioDB.getstockHistoryClose())
+    // console.log(this.PorfolioDB.getstockHistoryHigh())
+    // console.log(this.PorfolioDB.getstockHistoryLow())
 
     //console.log(this.DBdateArr)
 

@@ -1,0 +1,8 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-header">
+        <h3>News</h3>
+    </div>
+    <ul class="list-group list-group-flush" *ngFor="let stock of newsResults">
+        <a href="{{stock.url}}" target="_blank"><li class="list-group-item">{{stock.title}}</li></a>
+    </ul>
+</div>

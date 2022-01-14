@@ -13,8 +13,8 @@ export class StocksocketService {
   public stockHistory$: BehaviorSubject<string> = new BehaviorSubject('');
   public stockLive$: BehaviorSubject<string> = new BehaviorSubject('');
 
-  //socket = io('https://stock-socket-test.herokuapp.com/');
-  socket = io('http://localhost:3500');
+  socket = io('https://stock-socket-test.herokuapp.com/');
+  // socket = io('http://localhost:3500');
 
   public getStockList(){
     this.socket.on('list', data =>{

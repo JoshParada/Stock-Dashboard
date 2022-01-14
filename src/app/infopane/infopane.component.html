@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem;" *ngIf="stockData.length>0">
+    <div class="card-body">
+      <h5 class="card-title">About</h5>
+      <p class="card-text" style="max-height: 100px; overflow: scroll;">{{stockData[0].description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{stockData[0].address1}} {{stockData[0].city}} {{stockData[0].state}} {{stockData[0].country}} {{stockData[0].zip}}</li>
+      <li class="list-group-item">Sector: {{stockData[0].sector}}</li>
+      <li class="list-group-item">Industry: {{stockData[0].industry}}</li>
+    </ul>
+    <div class="card-body">
+        <a href="{{stockData[0].website}}" class="card-link">{{stockData[0].website}}</a>
+
+      <a href="{{stockData[0].website}}" class="card-link">{{stockData[0].phone}}</a>
+    </div>
+  </div>

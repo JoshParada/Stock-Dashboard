@@ -25,16 +25,16 @@ export class PortfolioDB {
 
     addToPortfolio(stock: Stock) {
         this.portfolioList.push(stock)
-        console.log(this.portfolioList)
+        //console.log(this.portfolioList)
     }
 
     removeFromPortfolio(stock: Stock) {
         let index = this.portfolioList.findIndex(x => x.symbol === stock.symbol);
-        console.log(stock, index)
+        //console.log(stock, index)
         if (index > -1) {
             this.portfolioList.splice(index, 1);
         }
-        console.log(this.portfolioList)
+        //console.log(this.portfolioList)
     }
 
     getsearchList() {

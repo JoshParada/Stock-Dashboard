@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class StockpageComponent implements OnInit, OnDestroy {
 
-  stock = (this.activeRoute.snapshot.paramMap.get('symbol'));
+  stockName = (this.activeRoute.snapshot.paramMap.get('symbol'));
 
   listResults: any[] = []
 
@@ -28,7 +28,7 @@ export class StockpageComponent implements OnInit, OnDestroy {
       // do something with the query params
     });
     this.activeRoute.params.subscribe(routeParams => {
-      this.stock = (this.activeRoute.snapshot.paramMap.get('symbol'));
+      this.stockName = (this.activeRoute.snapshot.paramMap.get('symbol'));
     });
     //console.log(this.stock)
 

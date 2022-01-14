@@ -14,6 +14,10 @@ import { FormsModule } from '@angular/forms';
 import * as PlotlyJS from 'plotly.js-dist-min';
 import { PlotlyModule } from 'angular-plotly.js';
 import { ChartComponent } from './chart/chart.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NewsComponent } from './news/news.component';
+import { InfopaneComponent } from './infopane/infopane.component';
+import { SearchresultsComponent } from './searchresults/searchresults.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -27,7 +31,11 @@ PlotlyModule.plotlyjs = PlotlyJS;
     SearchpageComponent,
     StockpageComponent,
     PortfolioComponent,
-    ChartComponent
+    ChartComponent,
+    ProfileComponent,
+    NewsComponent,
+    InfopaneComponent,
+    SearchresultsComponent
   ],
   imports: [
     BrowserModule,
