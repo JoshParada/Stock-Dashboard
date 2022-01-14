@@ -4,7 +4,22 @@
             <profile [stockName]="stockName"></profile>
         </div>
         <div class="chart">
-            <chart [historicalData]="historicalData" [liveData]="liveData"></chart>
+            <form class="chartinput" #chartinput="ngForm" (ngSubmit)="onSubmit(chartinput.valid)">
+                <label for="datemax">Start Date:</label>
+                <input type="date" id="datemax" name="datemax" required [(ngModel)]="startDate"><br><br>
+                <label for="datemin">End Date:</label>
+                <input type="date" id="datemin" name="datemin" max="{{todayString}}" required [(ngModel)]="endDate">
+                <label for="interval">Interval:</label>
+                <select id="inverval" name="inverval" required [(ngModel)]="interval">
+                    <option value="5m">5m</option>
+                    <option value="15m">15m</option>
+                    <option value="1h">1h</option>
+                    <option value="1d">1d</option>
+                </select>
+                <button id="update" type="submit" class="btn btn-primary" [disabled]="chartinput.invalid">Update</button>
+            </form>
+
+            <chart [historicalData]="historicalData" [liveData]="liveData" [startDate]="startDate" [endDate]="endDate" [interval]="interval"></chart>
         </div>
     </div>
     <div class="containerhalf">

@@ -15,7 +15,7 @@ export class AppComponent {
 
   addTosearchList(stock:string){
     this.portfolioDB.addToseachList(stock);
-    //this.symbolSearch = ''
+    // this.symbolSearch = ''
 
     //console.log(this.portfolioDB.searchList)
   }

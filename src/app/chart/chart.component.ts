@@ -11,12 +11,9 @@ export class ChartComponent implements OnInit {
 
   @Input() historicalData: any = [];
   @Input() liveData: any = [];
-
-  today: Date = new Date()
-  todayString: string = this.today.toISOString().slice(0, 10);
-  startDate = ''
-  endDate = ''
-  interval = ''
+  @Input() startDate = ''
+  @Input() endDate = ''
+  @Input() interval = ''
 
   openArr: number[] = []
   highArr: number[] = []
@@ -24,14 +21,14 @@ export class ChartComponent implements OnInit {
   closeArr: number[] = []
   dateArr: string[] = []
 
-  DBopenArr: number[] = this.PorfolioDB.getstockHistoryOpen()
-  DBhighArr: number[] = this.PorfolioDB.getstockHistoryHigh()
-  DBlowArr: number[] = this.PorfolioDB.getstockHistoryLow()
-  DBcloseArr: number[] = this.PorfolioDB.getstockHistoryClose()
-  DBdateArr: string[] = this.PorfolioDB.getstockHistoryDay()
+  // DBopenArr: number[] = this.PorfolioDB.getstockHistoryOpen()
+  // DBhighArr: number[] = this.PorfolioDB.getstockHistoryHigh()
+  // DBlowArr: number[] = this.PorfolioDB.getstockHistoryLow()
+  // DBcloseArr: number[] = this.PorfolioDB.getstockHistoryClose()
+  // DBdateArr: string[] = this.PorfolioDB.getstockHistoryDay()
 
   graph: any = {
-    data: [{ x: [1, 2, 3], y: [2, 6, 3], high:[2, 6, 3],low:[2, 6, 3],open:[2, 6, 3],close:[2, 6, 3],type: 'candlestick', marker: {color: 'red'} }],
+    data: [],
     layout: {
       autosize: true,
       plot_bgcolor: 'rgba(0,0,0,0)',
@@ -81,15 +78,11 @@ export class ChartComponent implements OnInit {
     private PorfolioDB: PortfolioDB) { }
 
   ngOnInit(): void {
-    this.PorfolioDB.removeFromstockHistoryDay()
-    this.PorfolioDB.removeFromstockHistoryOpen()
-    this.PorfolioDB.removeFromstockHistoryClose()
-    this.PorfolioDB.removeFromstockHistoryHigh()
-    this.PorfolioDB.removeFromstockHistoryLow()
-  }
-
-  onSubmit(isValid: boolean | null) {
-    console.log(this.startDate, this.endDate, this.interval)
+    // this.PorfolioDB.removeFromstockHistoryDay()
+    // this.PorfolioDB.removeFromstockHistoryOpen()
+    // this.PorfolioDB.removeFromstockHistoryClose()
+    // this.PorfolioDB.removeFromstockHistoryHigh()
+    // this.PorfolioDB.removeFromstockHistoryLow()
   }
 
   ngOnChanges(): void {
@@ -216,12 +209,12 @@ export class ChartComponent implements OnInit {
       low: this.lowArr,
       open: this.openArr,
       close: this.closeArr,
-      increasing: { line: { color: `rgba(${random1}, ${random2}, ${random3}, 1)` } },
+      increasing: { line: { color: `red, 1)` } },
       decreasing: {
         line: {
-          color: `rgba(${random1}, ${random2}, ${random3}, 1)`,
+          color: `green, 1)`,
         },
-        fillcolor: `rgba(${random1}, ${random2}, ${random3}, .1)`
+        fillcolor: `blue, .1)`
       },
       line: { color: 'blue' },
       type: 'candlestick',

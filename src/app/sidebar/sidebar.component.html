@@ -5,6 +5,9 @@
     <a class="none" routerLink='portfoliopage'><span class="title none fs-5 fw-semibold">My Portfolio</span></a>
     
     <div class="stocklist list-group list-group-flush border-bottom scrollarea">
+      <div *ngIf="stockList.length == 0">
+        Your portfolio is empty. Search for a stock to add to your portfolio.
+      </div>
       <ul class="stocklist" *ngFor="let stock of stockList">
         <div class="stock">
           <a routerLink="stockpage/{{stock.symbol}}" class="stocklink list-group-item list-group-item-action py-3 lh-tight">
