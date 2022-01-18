@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { StocksocketService } from '../stocksocket.service';
 import { PortfolioDB } from '../portfolioDB';
 
@@ -10,7 +10,7 @@ import { PortfolioDB } from '../portfolioDB';
 export class ChartComponent implements OnInit {
 
   @Input() historicalData: any = [];
-  @Input() liveData: any = [];
+  //@Input() liveData: any = [];
   @Input() startDate = ''
   @Input() endDate = ''
   @Input() interval = ''
@@ -20,12 +20,6 @@ export class ChartComponent implements OnInit {
   lowArr: number[] = []
   closeArr: number[] = []
   dateArr: string[] = []
-
-  // DBopenArr: number[] = this.PorfolioDB.getstockHistoryOpen()
-  // DBhighArr: number[] = this.PorfolioDB.getstockHistoryHigh()
-  // DBlowArr: number[] = this.PorfolioDB.getstockHistoryLow()
-  // DBcloseArr: number[] = this.PorfolioDB.getstockHistoryClose()
-  // DBdateArr: string[] = this.PorfolioDB.getstockHistoryDay()
 
   graph: any = {
     data: [],
@@ -87,12 +81,56 @@ export class ChartComponent implements OnInit {
 
   ngOnChanges(): void {
 
-    // this.DBopenArr  = this.PorfolioDB.getstockHistoryOpen()
-    // this.DBhighArr  = this.PorfolioDB.getstockHistoryHigh()
-    // this.DBlowArr= this.PorfolioDB.getstockHistoryLow()
-    // this.DBcloseArr = this.PorfolioDB.getstockHistoryClose()
-    // this.DBdateArr  = this.PorfolioDB.getstockHistoryDay()
-    //console.log(this.historicalData)
+    let openA = []
+    let closeA = []
+    let highA = []
+    let lowA = []
+    let dateA = []
+
+    for (let day of this.historicalData) {
+      openA.push(day.open)
+      closeA.push(day.close)
+      highA.push(day.high)
+      lowA.push(day.low)
+      dateA.push((day.day).slice(0, 10))
+    }
+
+    this.openArr = openA
+    this.closeArr = closeA
+    this.highArr = highA
+    this.lowArr = lowA
+    this.dateArr = dateA
+    const random1 = Math.floor(Math.random() * 255);
+    const random2 = Math.floor(Math.random() * 255);
+    const random3 = Math.floor(Math.random() * 255);
+
+    //console.log(this.openArr, this.closeArr, this.lowArr, this.highArr, this.dateArr);
+
+    this.graph.data = [{
+      x: this.dateArr,
+      high: this.highArr,
+      low: this.lowArr,
+      open: this.openArr,
+      close: this.closeArr,
+      increasing: { line: { color: `${random1},${random2},${random3}, 1)` } },
+      decreasing: {
+        line: {
+          color: `${random1},${random2},${random3}, 1)`,
+        },
+        fillcolor: `${random1},${random2},${random3}, .1)`
+      },
+      line: { color: 'blue' },
+      type: 'candlestick',
+      xaxis: 'x',
+      yaxis: 'y'
+    }]
+
+
+
+    //    *** LIVE DATA ***
+
+    //console.log(this.liveData)
+
     // let openA = []
     // let closeA = []
     // let highA = []
@@ -125,7 +163,6 @@ export class ChartComponent implements OnInit {
     // // console.log(this.PorfolioDB.getstockHistoryHigh())
     // // console.log(this.PorfolioDB.getstockHistoryLow())
 
-    // //console.log(this.DBdateArr)
 
     // this.openArr = openA
     // this.closeArr = closeA
@@ -138,89 +175,32 @@ export class ChartComponent implements OnInit {
 
     // //console.log(this.openArr, this.closeArr, this.lowArr, this.highArr, this.dateArr);
 
-    // this.graph.data[0].x.push(3243);
-    // this.graph.data[0].close.push(345);
-    // this.graph.data[0].high.push(12345);
-    // this.graph.data[0].low.push(314253);
-    // this.graph.data[0].open.push(3415);
+    // this.graph.data = [{
+    //   x: this.PorfolioDB.getstockHistoryDay(),
+    //   high: this.PorfolioDB.getstockHistoryHigh(),
+    //   low: this.PorfolioDB.getstockHistoryLow(),
+    //   open: this.PorfolioDB.getstockHistoryOpen(),
+    //   close: this.PorfolioDB.getstockHistoryClose(),
 
-    // // this.graph.data = [{
-    // //   x: this.PorfolioDB.getstockHistoryDay(),
-    // //   high: this.PorfolioDB.getstockHistoryHigh(),
-    // //   low: this.PorfolioDB.getstockHistoryLow(),
-    // //   open: this.PorfolioDB.getstockHistoryOpen(),
-    // //   close: this.PorfolioDB.getstockHistoryClose(),
+    //   // x: this.dateArr,
+    //   // high: this.highArr,
+    //   // low: this.lowArr,
+    //   // open: this.openArr,
+    //   // close: this.closeArr,
 
-    // //   // x: this.DBdateArr,
-    // //   // high: this.DBhighArr,
-    // //   // low: this.DBlowArr,
-    // //   // open: this.DBopenArr,
-    // //   // close: this.DBcloseArr,
+    //   increasing: { line: { color: `rgba(${random1}, ${random2}, ${random3}, 1)` } },
+    //   decreasing: {
+    //     line: {
+    //       color: `rgba(${random1}, ${random2}, ${random3}, 1)`,
+    //     },
+    //     fillcolor: `rgba(${random1}, ${random2}, ${random3}, .1)`
+    //   },
+    //   line: { color: 'blue' },
+    //   type: 'candlestick',
+    //   xaxis: 'x',
+    //   yaxis: 'y'
+    // }]
 
-    // //   // x: this.dateArr,
-    // //   // high: this.highArr,
-    // //   // low: this.lowArr,
-    // //   // open: this.openArr,
-    // //   // close: this.closeArr,
-
-    // //   // increasing: { line: { color: `rgba(${random1}, ${random2}, ${random3}, 1)` } },
-    // //   // decreasing: {
-    // //   //   line: {
-    // //   //     color: `rgba(${random1}, ${random2}, ${random3}, 1)`,
-    // //   //   },
-    // //   //   fillcolor: `rgba(${random1}, ${random2}, ${random3}, .1)`
-    // //   // },
-    // //   // line: { color: 'blue' },
-    // //   type: 'candlestick'
-    // //   // xaxis: 'x',
-    // //   // yaxis: 'y'
-    // // }]
-
-
-
-    let openA = []
-    let closeA = []
-    let highA = []
-    let lowA = []
-    let dateA = []
-
-    for (let day of this.historicalData) {
-      openA.push(day.open)
-      closeA.push(day.close)
-      highA.push(day.high)
-      lowA.push(day.low)
-      dateA.push((day.day).slice(0, 10))
-    }
-
-    this.openArr = openA
-    this.closeArr = closeA
-    this.highArr = highA
-    this.lowArr = lowA
-    this.dateArr = dateA
-    const random1 = Math.floor(Math.random() * 255);
-    const random2 = Math.floor(Math.random() * 255);
-    const random3 = Math.floor(Math.random() * 255);
-
-    //console.log(this.openArr, this.closeArr, this.lowArr, this.highArr, this.dateArr);
-
-    this.graph.data = [{
-      x: this.dateArr,
-      high: this.highArr,
-      low: this.lowArr,
-      open: this.openArr,
-      close: this.closeArr,
-      increasing: { line: { color: `red, 1)` } },
-      decreasing: {
-        line: {
-          color: `green, 1)`,
-        },
-        fillcolor: `blue, .1)`
-      },
-      line: { color: 'blue' },
-      type: 'candlestick',
-      xaxis: 'x',
-      yaxis: 'y'
-    }]
 
   }
 }
