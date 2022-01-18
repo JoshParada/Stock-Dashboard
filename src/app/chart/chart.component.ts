@@ -11,9 +11,6 @@ export class ChartComponent implements OnInit {
 
   @Input() historicalData: any = [];
   //@Input() liveData: any = [];
-  @Input() startDate = ''
-  @Input() endDate = ''
-  @Input() interval = ''
 
   openArr: number[] = []
   highArr: number[] = []
@@ -72,11 +69,7 @@ export class ChartComponent implements OnInit {
     private PorfolioDB: PortfolioDB) { }
 
   ngOnInit(): void {
-    // this.PorfolioDB.removeFromstockHistoryDay()
-    // this.PorfolioDB.removeFromstockHistoryOpen()
-    // this.PorfolioDB.removeFromstockHistoryClose()
-    // this.PorfolioDB.removeFromstockHistoryHigh()
-    // this.PorfolioDB.removeFromstockHistoryLow()
+  
   }
 
   ngOnChanges(): void {
@@ -100,9 +93,6 @@ export class ChartComponent implements OnInit {
     this.highArr = highA
     this.lowArr = lowA
     this.dateArr = dateA
-    const random1 = Math.floor(Math.random() * 255);
-    const random2 = Math.floor(Math.random() * 255);
-    const random3 = Math.floor(Math.random() * 255);
 
     //console.log(this.openArr, this.closeArr, this.lowArr, this.highArr, this.dateArr);
 
@@ -112,12 +102,12 @@ export class ChartComponent implements OnInit {
       low: this.lowArr,
       open: this.openArr,
       close: this.closeArr,
-      increasing: { line: { color: `${random1},${random2},${random3}, 1)` } },
+      increasing: { line: { color: `green, 1)` } },
       decreasing: {
         line: {
-          color: `${random1},${random2},${random3}, 1)`,
+          color: `red, 1)`,
         },
-        fillcolor: `${random1},${random2},${random3}, .1)`
+        fillcolor: `blue, .1)`
       },
       line: { color: 'blue' },
       type: 'candlestick',
@@ -127,8 +117,27 @@ export class ChartComponent implements OnInit {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
     //    *** LIVE DATA ***
 
+
+    // ngOnInit(): void {
+    //   // this.PorfolioDB.removeFromstockHistoryDay()
+    //   // this.PorfolioDB.removeFromstockHistoryOpen()
+    //   // this.PorfolioDB.removeFromstockHistoryClose()
+    //   // this.PorfolioDB.removeFromstockHistoryHigh()
+    //   // this.PorfolioDB.removeFromstockHistoryLow()
+    // }
     //console.log(this.liveData)
 
     // let openA = []
