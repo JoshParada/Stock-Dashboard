@@ -9,34 +9,20 @@ export class StocksocketService {
 
   constructor() { }
 
-  public stockList$: BehaviorSubject<string> = new BehaviorSubject('');
-  public stockHistory$: BehaviorSubject<string> = new BehaviorSubject('');
-  public stockLive$: BehaviorSubject<string> = new BehaviorSubject('');
-
+  public stock$: BehaviorSubject<string> = new BehaviorSubject('');
+  
   socket = io('https://stock-socket-test.herokuapp.com/');
   // socket = io('http://localhost:3500');
 
-  public getStockList(){
-    this.socket.on('list', data =>{
+  public listen(type:string) {
+    this.socket.on(type, data => {
       //console.log(data);
-      this.stockList$.next(data);
+      this.stock$.next(data);
     })
-    return this.stockList$.asObservable();
+    return this.stock$.asObservable();
   }
 
-  public getStockHistory(){
-    this.socket.on('history', data =>{
-      //console.log(data);
-      this.stockHistory$.next(data);
-    })
-    return this.stockHistory$.asObservable();
-  }
-
-  public getStockLive(){
-    this.socket.on('live', data =>{
-      //console.log(data);
-      this.stockLive$.next(data);
-    })
-    return this.stockLive$.asObservable();
+  public emit(type:string,data:any) {
+    this.socket.emit(type,data)
   }
 }

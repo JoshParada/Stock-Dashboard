@@ -6,7 +6,7 @@
         <div class="chart">
             <form class="chartinput" #chartinput="ngForm" (ngSubmit)="onSubmit(chartinput.valid)">
                 <label for="datemax">Start Date:</label>
-                <input type="date" id="datemax" name="datemax" required [(ngModel)]="startDate"><br><br>
+                <input type="date" id="datemax" name="datemax" max="{{todayString}}" required [(ngModel)]="startDate"><br><br>
                 <label for="datemin">End Date:</label>
                 <input type="date" id="datemin" name="datemin" max="{{todayString}}" required [(ngModel)]="endDate">
                 <label for="interval">Interval:</label>
@@ -18,8 +18,10 @@
                 </select>
                 <button id="update" type="submit" class="btn btn-primary" [disabled]="chartinput.invalid">Update</button>
             </form>
-
-            <chart [historicalData]="historicalData" [liveData]="liveData" [startDate]="startDate" [endDate]="endDate" [interval]="interval"></chart>
+            <!-- [liveData]="liveData" -->
+            <chart 
+            [historicalData]="historicalData" 
+            ></chart>
         </div>
     </div>
     <div class="containerhalf">

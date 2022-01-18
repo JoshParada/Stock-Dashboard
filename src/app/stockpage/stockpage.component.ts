@@ -9,6 +9,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class StockpageComponent implements OnInit, OnDestroy {
 
+  stockSymbols = ['ABC','XYZ','123','456','789','NBR']
+  randomNum = Math.floor(Math.random()*5)
+
   stockName = (this.activeRoute.snapshot.paramMap.get('symbol'));
 
   listResults: any[] = []
@@ -31,26 +34,29 @@ export class StockpageComponent implements OnInit, OnDestroy {
     private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activeRoute.queryParams.subscribe(queryParams => {
-      // do something with the query params
-    });
+
     this.activeRoute.params.subscribe(routeParams => {
       this.stockName = (this.activeRoute.snapshot.paramMap.get('symbol'));
     });
     //console.log(this.stock)
 
-    this.StocksocketService.getStockList().subscribe(data => {
+    this.StocksocketService.listen('list').subscribe(data => {
       this.listResults = [data];
       //console.log(this.listResults);
     })
 
-    this.StocksocketService.getStockLive().subscribe(data => {
+    this.StocksocketService.listen('live').subscribe(data => {
       this.liveResults = [data[0]];
       this.liveData = this.liveResults[0].data;
       //console.log(this.liveData);
     })
 
-    this.StocksocketService.getStockHistory().subscribe(data => {
+    let lastweek = new Date();
+    lastweek.setDate(lastweek.getDate() - 6)
+    let today = new Date();
+    this.StocksocketService.emit('history', {names: [this.stockSymbols[this.randomNum]], startDate: lastweek, endDate:today,interval:'1d'})
+
+    this.StocksocketService.listen('history').subscribe(data => {
       this.historicalResults = [data[0]];
       this.historicalData = this.historicalResults[0].days;
       //console.log(this.historicalData);
@@ -59,6 +65,12 @@ export class StockpageComponent implements OnInit, OnDestroy {
 
   onSubmit(isValid: boolean | null) {
     console.log(this.startDate, this.endDate, this.interval)
+    this.StocksocketService.emit('history', {names: ['ABC'], startDate: this.startDate, endDate:this.endDate,interval:this.interval})
+    this.StocksocketService.listen('history').subscribe(data => {
+      this.historicalResults = [data[0]];
+      this.historicalData = this.historicalResults[0].days;
+      //console.log(this.historicalData);
+    })
   }
 
   ngOnDestroy() {
