@@ -4,3 +4,10 @@
 .negative{
     color: red;
 }
+.cardinfo{
+    display: flex;
+    justify-content: space-between;
+}
+.card-text{
+    font-size: 18px;
+}
