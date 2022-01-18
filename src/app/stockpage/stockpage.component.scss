@@ -14,14 +14,27 @@
 }
 .containerHalf {
     display: flex;
-    flex-direction: row;
-    margin: auto;
+    width: 100%;
+}
+
+.containerHalf2 {
+   display: flex;
+}
+
+.containerQuarter{
+    display: flex;
+    float:left;
+    flex: 1;
+    
     width: 50%;
    
-
 
 }
 
 .chartinput{
     background-color: #f7f7f7;
+}
+
+.chart{
+    display: flex;
 }
