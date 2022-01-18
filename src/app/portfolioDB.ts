@@ -10,14 +10,6 @@ export class PortfolioDB {
         // { symbol: 'tsla' }
     ]
 
-    searchList: string[] = []
-
-    stockHistoryDay: any[] = []
-    stockHistoryOpen: any[] = []
-    stockHistoryClose: any[] = []
-    stockHistoryHigh: any[] = []
-    stockHistoryLow: any[] = []
-
     getPortfolio() {
         //console.log(this.portfolioList)
         return this.portfolioList
@@ -36,6 +28,26 @@ export class PortfolioDB {
         }
         //console.log(this.portfolioList)
     }
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    searchList: string[] = []
+
+    stockHistoryDay: any[] = []
+    stockHistoryOpen: any[] = []
+    stockHistoryClose: any[] = []
+    stockHistoryHigh: any[] = []
+    stockHistoryLow: any[] = []
 
     getsearchList() {
         //console.log(this.portfolioList)
