@@ -10,6 +10,8 @@ import { PortfolioDB } from './portfolioDB';
 export class AppComponent {
   title = 'StockDashboard';
 
+  hideshow:boolean=true
+
   symbolSearch:string = ''
   constructor(private portfolioDB:PortfolioDB){}
 
@@ -18,5 +20,10 @@ export class AppComponent {
     // this.symbolSearch = ''
 
     //console.log(this.portfolioDB.searchList)
+  }
+
+  toggleHideShow(){
+    this.hideshow=!this.hideshow
+    console.log(this.hideshow)
   }
 }

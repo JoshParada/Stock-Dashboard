@@ -1,7 +1,12 @@
 <div class="container">
   <h2>My Portfolio</h2>
   <div class="empty" *ngIf="stockList.length == 0">
-    <p>Your portfolio is empty. Search for a stock to add to your portfolio</p>
+
+    <div class="titlecard">
+      <div class="card">
+        <h5 class="card-header">Your portfolio is empty. Search for a stock to add to your portfolio.</h5>
+      </div>
+    </div>
   </div>
   <div class="portfolio" *ngFor="let stock of portfolio">
     <profile [stockName]="stock.symbol"></profile>

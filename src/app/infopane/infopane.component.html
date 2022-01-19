@@ -1,21 +1,23 @@
-<div class="card" *ngIf="stockData.length>0">
-  <div class="card-body about">
-    <h4 class="card-title">About</h4>
-    <p class="card-text text">{{stockData[0].description}}</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><span class="bold">Headquarters: </span><br> {{stockData[0].address1}} <br>{{stockData[0].city}}, {{stockData[0].state}}
-      {{stockData[0].zip}}<br>
-      {{stockData[0].country}} </li>
-    <li class="list-group-item"><span class="bold">Sector: </span>{{stockData[0].sector}}</li>
-    <li class="list-group-item"><span class="bold">Industry: </span>{{stockData[0].industry}}</li>
-  </ul>
-  <div class="card-body">
-    <span class="bold">Contact: </span>
-    <br>
-    <a href="{{stockData[0].website}}" class="card-link" target="_blank">{{stockData[0].website}}</a>
-    <br>
-    <a href="{{stockData[0].website}}" class="card-link" target="_blank" style="text-decoration: none; color: black;">{{stockData[0].phone}}</a>
+<div class="container">
+  <div class="card" *ngIf="stockData.length>0">
+    <div class="card-body about">
+      <h4 class="card-title">About</h4>
+      <p class="card-text text">{{stockData[0].description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><span class="bold">Headquarters: </span><br> {{stockData[0].address1}} <br>{{stockData[0].city}}, {{stockData[0].state}}
+        {{stockData[0].zip}}<br>
+        {{stockData[0].country}} </li>
+      <li class="list-group-item"><span class="bold">Sector: </span>{{stockData[0].sector}}</li>
+      <li class="list-group-item"><span class="bold">Industry: </span>{{stockData[0].industry}}</li>
+    </ul>
+    <div class="card-body">
+      <span class="bold">Contact: </span>
+      <br>
+      <a href="{{stockData[0].website}}" class="card-link" target="_blank">{{stockData[0].website}}</a>
+      <br>
+      <a href="{{stockData[0].website}}" class="card-link" target="_blank" style="text-decoration: none; color: black;">{{stockData[0].phone}}</a>
+    </div>
   </div>
 </div>
 

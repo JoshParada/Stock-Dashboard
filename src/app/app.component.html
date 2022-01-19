@@ -6,8 +6,10 @@
     <header class="d-flex flex-wrap justify-content-center">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto">
         <img src="assets/logo.png" alt="logo" style="width: 95px; height: 80px;">
-        <a routerLink="homepage" class="none"><span class="fs-4 title"><h2><span class="bullish">Bullish</span> or <span class="bearish">Bearish</span>?</h2></span></a>
-        
+        <a routerLink="homepage" class="none"><span class="fs-4 title">
+            <h2><span class="bullish">Bullish</span> or <span class="bearish">Bearish</span>?</h2>
+          </span></a>
+
       </a>
 
       <ul class="nav nav-pills">
@@ -16,15 +18,26 @@
         <li class="nav-item"><a href="#" class="nav-link">About</a></li>
       </ul>
       <form class="form col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input name="symbolSearch" type="search" class="search form-control form-control-dark" placeholder="Search..." aria-label="Search" [(ngModel)]="symbolSearch">
-        <a class="searchbtn" routerLink="searchpage/{{symbolSearch}}"><button type="submit" class="btn btn-light btn-outline-success" (click)="addTosearchList(symbolSearch)">Submit</button>
+        <input name="symbolSearch" type="search" class="search form-control form-control-dark" placeholder="Search..."
+          aria-label="Search" [(ngModel)]="symbolSearch">
+        <a class="searchbtn" routerLink="searchpage/{{symbolSearch}}"><button type="submit"
+            class="btn btn-light btn-outline-success" (click)="addTosearchList(symbolSearch)">Submit</button>
         </a>
       </form>
     </header>
   </div>
   <div class="container">
+
     <div class="sidebar">
-      <sidebar></sidebar>
+      <div class="button">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <span class="navbar-toggler-icon"></span></button>
+        <button type="button" class="toggle btn btn-outline-dark" (click)="toggleHideShow()">Hide/Show</button>
+      </div>
+      <div class="sidebarcontent" *ngIf="hideshow == true">
+        <sidebar></sidebar>
+
+      </div>
     </div>
     <div class="page">
       <page></page>
