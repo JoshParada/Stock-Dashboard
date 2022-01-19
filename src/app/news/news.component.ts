@@ -7,12 +7,15 @@ import { StockdataService } from '../stockdata.service';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
+  //@Input() trendingNamesString: string = ''
   @Input() stockName: string | null= ''
 
   newsResults: any[] = []
   constructor(private StockdataService: StockdataService) { }
 
   ngOnInit(): void {
+    // console.log('trending', this.stockName)
+
   }
 
   ngOnChanges(){

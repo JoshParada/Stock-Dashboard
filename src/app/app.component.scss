@@ -13,6 +13,7 @@ h2{
 }
 .container{
     width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -82,7 +83,15 @@ li{
       width: 20%;
       height: 100%;
   }
+  .stocklist{
+      padding-left: 0;
+  }
   .page{
       width: 100%;
-      
+      height: 100%;
+  }
+
+  .button{
+    background-color: #efefef;
+    margin: auto;
   }

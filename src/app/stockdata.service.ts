@@ -51,7 +51,7 @@ export class StockdataService {
 
   public searchTrending(date:string){
     return new Promise((resolve,reject)=>{
-      this.http.get(`https://api.stockdata.org/v1/news/stats/intraday?&interval=week&published_after=${date}&entity_types=equity&exchanges=nyse&limit=4&language=en&countries=us&api_token=${this.APIkey}`).subscribe(
+      this.http.get(`https://api.stockdata.org/v1/news/stats/intraday?&interval=week&published_after=${date}&entity_types=equity&exchanges=nyse&limit=5&language=en&countries=us&api_token=${this.APIkey}`).subscribe(
         (res)=>{
           //console.log(res)
           resolve(res);
@@ -64,7 +64,7 @@ export class StockdataService {
 
   public searchNews(symbol:string){
     return new Promise((resolve,reject)=>{
-      this.http.get(`https://api.stockdata.org/v1/news/all?symbols=${symbol}&language=en&countries=us&filter_entities=true&limit=3&api_token=${this.APIkey}`).subscribe(
+      this.http.get(`https://api.stockdata.org/v1/news/all?symbols=${symbol}&language=en&countries=us&filter_entities=true&limit=5&api_token=${this.APIkey}`).subscribe(
         (res)=>{
           //console.log(res)
           resolve(res);

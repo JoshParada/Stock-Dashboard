@@ -4,6 +4,7 @@
     background-color: #B1D0E0;
     padding: 20px;
     margin: 20px 15px;
+    min-height: 750px;
 }
 
 .positive{
@@ -15,7 +16,7 @@
 .searchlist{
     display: inline-block;
 }
-.card{
+.stock{
     display: flex;
     min-height: 200px;
     max-width: 200px;

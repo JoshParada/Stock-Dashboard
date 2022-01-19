@@ -1,21 +1,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"><div class="sidebar">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+<div class="sidebar">
   <div class="titlediv d-flex flex-column align-items-stretch flex-shrink-0">
     <a class="none" routerLink='portfoliopage'><span class="title none fs-5 fw-semibold">My Portfolio</span></a>
-    
+
     <div class="stocklist list-group list-group-flush border-bottom scrollarea">
-      <div *ngIf="stockList.length == 0">
-        Your portfolio is empty. Search for a stock to add to your portfolio.
+      <div class="empty" style="margin: auto;" *ngIf="stockList.length == 0">
+        <p style="margin: auto;">Your portfolio is empty. Search for a stock to add to your portfolio.
+        </p>
       </div>
-      <ul class="stocklist" *ngFor="let stock of stockList">
+      <ul class="stocklist" style="padding-left: 0px;" *ngFor="let stock of stockList">
         <div class="stock">
-          <a routerLink="stockpage/{{stock.symbol}}" class="stocklink list-group-item list-group-item-action py-3 lh-tight">
+          <a routerLink="stockpage/{{stock.symbol}}"
+            class="stocklink list-group-item list-group-item-action py-3 lh-tight">
             <div class="d-flex w-100 align-items-center justify-content-between">
               <strong class="mb-1">{{stock.symbol | uppercase}}</strong>
             </div>
           </a>
-          <button type="button" class="removestock btn btn-danger list-group-item list-group-item-action py-3 lh-tight" (click)="removeFromPortfolio(stock)">X</button>
+          <button type="button" class="removestock btn btn-danger list-group-item list-group-item-action py-3 lh-tight"
+            (click)="removeFromPortfolio(stock)">X</button>
         </div>
       </ul>
     </div>

@@ -1,11 +1,13 @@
 <div class="container">
   <h2>Results for: '{{stock}}'</h2>
   <div class="empty" *ngIf="searchData.length == 0">
-    <p>Searching for results...</p>
+      <div class="card">
+        <h5 class="card-header">There are no results for {{stock}}</h5>
+      </div>
   </div>
   
   <div class="searchlist" *ngFor="let stock of searchData">
-    <div class="card">
+    <div class="card stock">
       <h5 class="card-header">{{stock['ticker'] | uppercase}}<button class="btn btn-success" (click)="addToPortfolio({symbol: stock['ticker']})">Add</button>
       </h5>
       <div class="card-body">

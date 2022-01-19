@@ -14,6 +14,7 @@ export class HomepageComponent implements OnInit {
   trendingNames = []
   trendingData = []
   trendingNews = []
+  trendingNamesString = ''
   today: Date = new Date();
 
   constructor(
@@ -29,6 +30,8 @@ export class HomepageComponent implements OnInit {
       this.trendingList = resp.data[0].data;
       this.trendingList.forEach(stock => {this.trendingNames.push(stock['key'])})
       //console.log(this.trendingList,this.trendingNames)
+      this.trendingNamesString = this.trendingNames.toString()
+      //console.log(this.trendingNamesString)
 
 
       this.StockdataService.searchQuote(this.trendingNames.toString()).then((resp:any) => {
